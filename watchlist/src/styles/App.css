@@ -2,11 +2,19 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100vh;
+  background-color: black;
+}
+
 body {
   margin: 0;
+  color: white;
 }
 
 .App {
   text-align: center;
+  height: 100vh;
+  /* background-color: rgb(251, 246, 246); */
 }
 
