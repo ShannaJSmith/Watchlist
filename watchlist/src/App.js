@@ -11,9 +11,9 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Route exact path="/" page={Watchlist} />
-        <Route path="/watched" page={Watched} />
-        <Route path="/add" page={Add} />
+        <Route exact path="/" component={Watchlist} />
+        <Route path="/watched" component={Watched} />
+        <Route path="/add" component={Add} />
       </div>
     </Router>
   );

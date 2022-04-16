@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Watchlist = () => {
-  return <div>Watchlist</div>;
+  return (
+    <div>
+      <h1>Watch List</h1>
+    </div>
+  );
 };
 
 export default Watchlist;

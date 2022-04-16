@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// ! header links not updating unless refresh
+
 const Header = () => {
   return (
     <header>
@@ -17,7 +19,7 @@ const Header = () => {
               <Link to="/watched">Watched</Link>
             </li>
             <li>
-              <Link to="/add" className="btn">
+              <Link to="/add" className="btn btn-main">
                 + Add
               </Link>
             </li>
