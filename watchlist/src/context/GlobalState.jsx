@@ -2,7 +2,6 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer';
 
 // inital state
-
 const initialState = {
   // when app loads intitial state will be empty if nothing is stored in localstorage
   // if data is in localstorage. convert it back into an array with json.parse
@@ -15,7 +14,6 @@ const initialState = {
 };
 
 // create context
-
 export const GlobalContext = createContext(initialState);
 
 // provider components
