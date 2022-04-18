@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Add = () => {
   const [query, setQuery] = useState('');
@@ -9,18 +10,32 @@ const Add = () => {
 
     setQuery(e.target.value);
 
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log('data', data);
-        if (!data.errors) {
-          setResults(data.results);
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+      )
+      .then((response) => {
+        console.log('data', response.data.results);
+        if (response) {
+          setResults(response.data.results);
         } else {
           setResults([]);
         }
       });
+
+    //FETCH METHOD:
+    // fetch(
+    //   `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     // console.log('data', data);
+    //     if (!data.errors) {
+    //       setResults(data.results);
+    //     } else {
+    //       setResults([]);
+    //     }
+    //   });
   };
 
   return (
@@ -38,7 +53,7 @@ const Add = () => {
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
-                <li>{movie.title}</li>
+                <li key={movie.id}>{movie.title}</li>
               ))}
             </ul>
           )}
