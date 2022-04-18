@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import ResultCard from '../components/ResultCard';
 
 const Add = () => {
   const [query, setQuery] = useState('');
@@ -15,7 +16,7 @@ const Add = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
       )
       .then((response) => {
-        console.log('data', response.data.results);
+        // console.log('response data', response.data.results);
         if (response) {
           setResults(response.data.results);
         } else {
@@ -53,7 +54,9 @@ const Add = () => {
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
-                <li key={movie.id}>{movie.title}</li>
+                <li key={movie.id}>
+                  <ResultCard movie={movie} />
+                </li>
               ))}
             </ul>
           )}
