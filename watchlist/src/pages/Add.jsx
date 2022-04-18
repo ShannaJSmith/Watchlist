@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import '../styles/App.scss';
+// import axios from 'axios';
 
 const Add = () => {
   const [query, setQuery] = useState('');
@@ -8,6 +9,14 @@ const Add = () => {
     e.preventDefault();
 
     setQuery(e.target.value);
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/550?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('data', data);
+      });
   };
 
   return (
