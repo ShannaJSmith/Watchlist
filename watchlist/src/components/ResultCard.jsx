@@ -4,6 +4,10 @@ import { GlobalContext } from '../context/GlobalState';
 const ResultCard = ({ movie }) => {
   const { addMovieToWatchlist } = useContext(GlobalContext);
 
+  const handleAddMovie = (movie) => {
+    addMovieToWatchlist(movie);
+  };
+
   return (
     <div className="result-card">
       <div className="poster-wrapper">
@@ -24,7 +28,7 @@ const ResultCard = ({ movie }) => {
           </h4>
         </div>
         <div className="controls">
-          <button className="btn" onClick={() => addMovieToWatchlist(movie)}>
+          <button className="btn" onClick={handleAddMovie}>
             Add to Watchlist
           </button>
         </div>
