@@ -9,6 +9,7 @@ const ResultCard = ({ movie }) => {
   let storedMovieWatched = watched.find((film) => film.id === movie.id);
   // const disableWatchlist = storedMovie ? true : storedMovieWatched ? true : false;
   const disableWatchlist = storedMovie || storedMovieWatched ? true : false;
+  const disableWatched = storedMovieWatched ? true : false;
 
   return (
     <div className="result-card">
@@ -40,7 +41,7 @@ const ResultCard = ({ movie }) => {
           <button
             className="btn"
             onClick={() => addMovieToWatched(movie)}
-            disabled={disableWatchlist}
+            disabled={disableWatched}
           >
             Add to Watched
           </button>
