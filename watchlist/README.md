@@ -1,4 +1,4 @@
-## Watchlist App
+# Watchlist App
 
 - React hooks
 - Context API
@@ -6,7 +6,7 @@
 
 tutorial: https://www.youtube.com/watch?v=1eO_hNYzaSc&ab_channel=MattTheDev
 
-# TODOs
+## TODOs
 
 - customize css
 - try different APIs
