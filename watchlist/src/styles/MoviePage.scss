@@ -20,7 +20,7 @@
 }
 
 .movie-page .heading {
-  color: var(--primary);
+  color: aquamarine;
   margin: 0;
 }
 
@@ -30,11 +30,11 @@
   grid-gap: 30px;
 }
 
-// @media (min-width: 992px) {
-//   .movie-grid {
-//     grid-template-columns: repeat(5, 1fr);
-//   }
-// }
+@media (min-width: 992px) {
+  .movie-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
 
 .movie-card {
   width: 100%;

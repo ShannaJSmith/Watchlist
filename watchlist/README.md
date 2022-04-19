@@ -11,3 +11,4 @@ tutorial: https://www.youtube.com/watch?v=1eO_hNYzaSc&ab_channel=MattTheDev
 - customize css
 - try different APIs
 - add features (reviews section?)
+- testing
