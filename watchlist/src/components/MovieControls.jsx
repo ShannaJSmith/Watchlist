@@ -19,6 +19,22 @@ const MovieControls = ({ movie, type }) => {
           </button>
         </>
       )}
+      {type === 'watched' && (
+        <>
+          <button
+            className="ctrl-btn"
+            // onClick={() => removeMovieFromWatchlist(movie.id)}
+          >
+            <i className="fa-fw far fa-eye-slash"></i>
+          </button>
+          <button
+            className="ctrl-btn"
+            // onClick={() => removeMovieFromWatchlist(movie.id)}
+          >
+            <i className="fa-fw fa fa-times"></i>
+          </button>
+        </>
+      )}
     </div>
   );
 };
