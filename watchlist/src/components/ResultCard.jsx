@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
 const ResultCard = ({ movie }) => {
-  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
+  const { addMovieToWatchlist, watchlist, watched } = useContext(GlobalContext);
 
   let storedMovie = watchlist.find((film) => film.id === movie.id);
-  const disableWatchlist = storedMovie ? true : false;
+  let storedMovieWatched = watched.find((film) => film.id === movie.id);
+  // const disableWatchlist = storedMovie ? true : storedMovieWatched ? true : false;
+  const disableWatchlist = storedMovie || storedMovieWatched ? true : false;
 
   return (
     <div className="result-card">
