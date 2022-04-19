@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useEffect } from 'react';
 import AppReducer from './AppReducer';
 
-// inital state
+// inital state:
 const initialState = {
   // when app loads intitial state will be empty if nothing is stored in localstorage
   // if data is in localstorage. convert it back into an array with json.parse
@@ -13,10 +13,10 @@ const initialState = {
     : [],
 };
 
-// create context
+// create context:
 export const GlobalContext = createContext(initialState);
 
-// provider components
+// provider components:
 export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
@@ -27,7 +27,8 @@ export const GlobalProvider = (props) => {
     localStorage.setItem('watched', JSON.stringify(state.watched));
   }, [state]);
 
-  // actions (tells app what to do after addmovie button is clicked)
+  // actions:
+  // (tells app what to do after addmovie button is clicked)
   const addMovieToWatchlist = (movie) => {
     dispatch({ type: 'ADD_MOVIE_TO_WATCHLIST', payload: movie });
   };
@@ -40,6 +41,14 @@ export const GlobalProvider = (props) => {
     dispatch({ type: 'ADD_MOVIE_TO_WATCHED', payload: movie });
   };
 
+  const moveToWatchlist = (movie) => {
+    dispatch({ type: 'MOVE_TO_WATCHLIST', payload: movie });
+  };
+
+  const removeFromWatched = (id) => {
+    dispatch({ type: 'REMOVE_FROM_WATCHED', payload: id });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -48,6 +57,8 @@ export const GlobalProvider = (props) => {
         addMovieToWatchlist,
         removeMovieFromWatchlist,
         addMovieToWatched,
+        moveToWatchlist,
+        removeFromWatched,
       }}
     >
       {props.children}
