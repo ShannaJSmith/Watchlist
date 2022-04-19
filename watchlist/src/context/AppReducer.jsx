@@ -5,6 +5,14 @@ export default (state, action) => {
         ...state, //return existing state
         watchlist: [action.payload, ...state.watchlist], //changes to the state. new array with the movie data added to existing state
       };
+    case 'REMOVE_MOVIE_FROM_WATCHLIST':
+      return {
+        ...state,
+        // return all the movies that are not equal to the id passed
+        watchlist: state.watchlist.filter(
+          (movie) => movie.id !== action.payload
+        ),
+      };
     default:
       return state;
   }
