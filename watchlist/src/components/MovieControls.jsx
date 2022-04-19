@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import '../styles/MoviePage.scss';
 
 const MovieControls = ({ type, movie }) => {
   const {

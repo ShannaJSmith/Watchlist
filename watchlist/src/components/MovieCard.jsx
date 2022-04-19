@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieControls from './MovieControls';
+import '../styles/MoviePage.scss';
 
 const MovieCard = ({ movie, type }) => {
   return (
